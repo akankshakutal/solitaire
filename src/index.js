@@ -1,15 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Card from "./card";
-import Deck from "./deck";
-import cardsData from "./data";
+import Game from "./game";
 import * as serviceWorker from "./serviceWorker";
 
-let cards = cardsData.map(card => {
-  return new Card(card);
-});
-
-ReactDOM.render(<Deck cards={cards} />, document.getElementById("root"));
+ReactDOM.render(<Game />, document.getElementById("root"));
 
 serviceWorker.unregister();

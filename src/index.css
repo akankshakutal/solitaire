@@ -16,3 +16,19 @@ code {
 .card {
   font-size: 150px;
 }
+
+.main-deck {
+  width: 150px;
+  height: 200px;
+  margin: 20px;
+  border: 1px solid black;
+}
+
+.upper-pile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.piles {
+  display: flex;
+}
