@@ -6,20 +6,28 @@ class Card extends React.Component {
     this.unicode = props.unicode;
     this.color = props.color;
     this.id = props.id;
+    this.cardNum = props.cardNum;
   }
 
-  getUnicode() {
-    return this.unicode;
-  }
-
-  getColor() {
-    return this.color;
+  drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
   }
 
   render() {
+    let className = "card";
+    if (this.cardNum == 0) {
+      className = "cards";
+    }
     return (
-      <div key={this.id} className="card" style={{ color: this.color }}>
-        {this.unicode}
+      <div
+        key={this.id}
+        className={className}
+        style={{ color: this.color }}
+        draggable="true"
+        onDragStart={this.drag.bind(this)}
+        id={this.id}
+      >
+        <div className="card-div">{this.unicode}</div>
       </div>
     );
   }

@@ -14,7 +14,13 @@ class Pile extends React.Component {
     for (let cardNum = 0; cardNum < totalCardCount; cardNum++) {
       let card = this.state.piles[this.pileNum][cardNum];
       let cardJSX = (
-        <Card unicode={card.unicode} color={card.color} id={card.id} />
+        <Card
+          unicode={card.unicode}
+          color={card.color}
+          key={card.id}
+          cardNum={cardNum}
+          id={card.id}
+        />
       );
       pileJSX.push(cardJSX);
     }

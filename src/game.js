@@ -1,5 +1,5 @@
 import React from "react";
-import cardsData from "./data";
+import cardsData from "./cardDetails";
 import { shuffle } from "lodash";
 import Piles from "./piles";
 
@@ -12,8 +12,22 @@ class Game extends React.Component {
 
   render() {
     return (
-      <div className="piles">
-        <Piles deck={this.deck} />
+      <div>
+        <div className="upper-pile">
+          <div className="upper-pile">
+            <div className="main-deck" />
+            <div className="main-deck" />
+          </div>
+          <div className="upper-pile">
+            <div className="main-deck" />
+            <div className="main-deck" />
+            <div className="main-deck" />
+            <div className="main-deck" />
+          </div>
+        </div>
+        <div className="piles">
+          <Piles deck={this.deck} wastePile={this.wastePile} />
+        </div>
       </div>
     );
   }
