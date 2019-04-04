@@ -1,12 +1,13 @@
 import React from "react";
 import Pile from "./pile";
+import Card from "./card";
 
 class Piles extends React.Component {
   constructor(props) {
     super(props);
     this.deck = props.deck;
-    this.wastePile = props.wastePile;
-    this.state = { piles: this.setPiles() };
+    const { wastePile, piles } = this.setPiles();
+    this.state = { piles, wastePile, drawnCards: [] };
   }
 
   setPiles() {
@@ -16,8 +17,8 @@ class Piles extends React.Component {
         piles[pileNumber].push(this.deck.pop());
       }
     }
-    this.wastePile = this.deck.slice();
-    return piles;
+    const wastePile = this.deck.slice();
+    return { piles, wastePile };
   }
 
   allowDrop(ev) {
@@ -32,8 +33,30 @@ class Piles extends React.Component {
     ev.target.appendChild(element);
   }
 
+  drawCard() {
+    const wastePile = this.state.wastePile;
+    console.log(wastePile);
+    const card = wastePile.pop();
+    const drawnCards = this.state.drawnCards;
+    drawnCards.push(
+      <Card
+        unicode={card.unicode}
+        color={card.color}
+        key={card.id}
+        id={card.id}
+      />
+    );
+    this.setState({
+      wastePile,
+      drawnCards
+    });
+  }
   render() {
     let pilesJSX = [];
+    pilesJSX.push(
+      <div className="main-deck" onClick={this.drawCard.bind(this)} />
+    );
+    pilesJSX.push(<div className="main-deck">{this.state.drawnCards}</div>);
     for (let pileNum = 0; pileNum < 7; pileNum++) {
       let pile = <Pile pileNum={pileNum} piles={this.state.piles} />;
       pilesJSX.push(
