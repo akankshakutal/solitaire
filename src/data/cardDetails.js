@@ -1,55 +1,316 @@
-let cardsData = [
-  { unicode: "\u{1F0a1}", color: "red", id: 1 },
-  { unicode: "\u{1F0a2}", color: "red", id: 2 },
-  { unicode: "\u{1F0a3}", color: "red", id: 3 },
-  { unicode: "\u{1F0a4}", color: "red", id: 4 },
-  { unicode: "\u{1F0a5}", color: "red", id: 5 },
-  { unicode: "\u{1F0a6}", color: "red", id: 6 },
-  { unicode: "\u{1F0a7}", color: "red", id: 7 },
-  { unicode: "\u{1F0a8}", color: "red", id: 8 },
-  { unicode: "\u{1F0a9}", color: "red", id: 9 },
-  { unicode: "\u{1F0aa}", color: "red", id: 10 },
-  { unicode: "\u{1F0ab}", color: "red", id: 11 },
-  { unicode: "\u{1F0ad}", color: "red", id: 12 },
-  { unicode: "\u{1F0ae}", color: "red", id: 13 },
-  { unicode: "\u{1F0b1}", color: "red", id: 14 },
-  { unicode: "\u{1F0b2}", color: "red", id: 15 },
-  { unicode: "\u{1F0b3}", color: "red", id: 16 },
-  { unicode: "\u{1F0b4}", color: "red", id: 17 },
-  { unicode: "\u{1F0b5}", color: "red", id: 18 },
-  { unicode: "\u{1F0b6}", color: "red", id: 19 },
-  { unicode: "\u{1F0b7}", color: "red", id: 20 },
-  { unicode: "\u{1F0b8}", color: "red", id: 21 },
-  { unicode: "\u{1F0b9}", color: "red", id: 22 },
-  { unicode: "\u{1F0ba}", color: "red", id: 23 },
-  { unicode: "\u{1F0bb}", color: "red", id: 24 },
-  { unicode: "\u{1F0bd}", color: "red", id: 25 },
-  { unicode: "\u{1F0be}", color: "red", id: 26 },
-  { unicode: "\u{1F0c1}", color: "black", id: 27 },
-  { unicode: "\u{1F0c2}", color: "black", id: 28 },
-  { unicode: "\u{1F0c3}", color: "black", id: 29 },
-  { unicode: "\u{1F0c4}", color: "black", id: 30 },
-  { unicode: "\u{1F0c5}", color: "black", id: 31 },
-  { unicode: "\u{1F0c6}", color: "black", id: 32 },
-  { unicode: "\u{1F0c7}", color: "black", id: 33 },
-  { unicode: "\u{1F0c8}", color: "black", id: 34 },
-  { unicode: "\u{1F0c9}", color: "black", id: 35 },
-  { unicode: "\u{1F0ca}", color: "black", id: 36 },
-  { unicode: "\u{1F0cb}", color: "black", id: 37 },
-  { unicode: "\u{1F0cd}", color: "black", id: 38 },
-  { unicode: "\u{1F0ce}", color: "black", id: 39 },
-  { unicode: "\u{1F0d1}", color: "black", id: 40 },
-  { unicode: "\u{1F0d2}", color: "black", id: 41 },
-  { unicode: "\u{1F0d3}", color: "black", id: 42 },
-  { unicode: "\u{1F0d4}", color: "black", id: 43 },
-  { unicode: "\u{1F0d5}", color: "black", id: 44 },
-  { unicode: "\u{1F0d6}", color: "black", id: 45 },
-  { unicode: "\u{1F0d7}", color: "black", id: 46 },
-  { unicode: "\u{1F0d8}", color: "black", id: 47 },
-  { unicode: "\u{1F0d9}", color: "black", id: 48 },
-  { unicode: "\u{1F0da}", color: "black", id: 49 },
-  { unicode: "\u{1F0db}", color: "black", id: 50 },
-  { unicode: "\u{1F0dd}", color: "black", id: 51 },
-  { unicode: "\u{1F0de}", color: "black", id: 52 }
+const cards = [
+  {
+    type: "spade",
+    number: "1",
+    color: "black",
+    unicode: "\u{1F0A1}"
+  },
+  {
+    type: "spade",
+    number: "2",
+    color: "black",
+    unicode: "\u{1F0A2}"
+  },
+  {
+    type: "spade",
+    number: "3",
+    color: "black",
+    unicode: "\u{1F0A3}"
+  },
+  {
+    type: "spade",
+    number: "4",
+    color: "black",
+    unicode: "\u{1F0A4}"
+  },
+  {
+    type: "spade",
+    number: "5",
+    color: "black",
+    unicode: "\u{1F0A5}"
+  },
+  {
+    type: "spade",
+    number: "6",
+    color: "black",
+    unicode: "\u{1F0A6}"
+  },
+  {
+    type: "spade",
+    number: "7",
+    color: "black",
+    unicode: "\u{1F0A7}"
+  },
+  {
+    type: "spade",
+    number: "8",
+    color: "black",
+    unicode: "\u{1F0A8}"
+  },
+  {
+    type: "spade",
+    number: "9",
+    color: "black",
+    unicode: "\u{1F0A9}"
+  },
+  {
+    type: "spade",
+    number: "10",
+    color: "black",
+    unicode: "\u{1F0AA}"
+  },
+  {
+    type: "spade",
+    number: "11",
+    color: "black",
+    unicode: "\u{1F0AB}"
+  },
+  {
+    type: "spade",
+    number: "12",
+    color: "black",
+    unicode: "\u{1F0AD}"
+  },
+  {
+    type: "spade",
+    number: "13",
+    color: "black",
+    unicode: "\u{1F0AE}"
+  },
+  {
+    type: "club",
+    number: "1",
+    color: "black",
+    unicode: "\u{1F0D1}"
+  },
+  {
+    type: "club",
+    number: "2",
+    color: "black",
+    unicode: "\u{1F0D2}"
+  },
+  {
+    type: "club",
+    number: "3",
+    color: "black",
+    unicode: "\u{1F0D3}"
+  },
+  {
+    type: "club",
+    number: "4",
+    color: "black",
+    unicode: "\u{1F0D4}"
+  },
+  {
+    type: "club",
+    number: "5",
+    color: "black",
+    unicode: "\u{1F0D5}"
+  },
+  {
+    type: "club",
+    number: "6",
+    color: "black",
+    unicode: "\u{1F0D6}"
+  },
+  {
+    type: "club",
+    number: "7",
+    color: "black",
+    unicode: "\u{1F0D7}"
+  },
+  {
+    type: "club",
+    number: "8",
+    color: "black",
+    unicode: "\u{1F0D8}"
+  },
+  {
+    type: "club",
+    number: "9",
+    color: "black",
+    unicode: "\u{1F0D9}"
+  },
+  {
+    type: "club",
+    number: "10",
+    color: "black",
+    unicode: "\u{1F0DA}"
+  },
+  {
+    type: "club",
+    number: "11",
+    color: "black",
+    unicode: "\u{1F0DB}"
+  },
+  {
+    type: "club",
+    number: "12",
+    color: "black",
+    unicode: "\u{1F0DD}"
+  },
+  {
+    type: "club",
+    number: "13",
+    color: "black",
+    unicode: "\u{1F0DE}"
+  },
+  {
+    type: "diamond",
+    number: "1",
+    color: "red",
+    unicode: "\u{1F0C1}"
+  },
+  {
+    type: "diamond",
+    number: "2",
+    color: "red",
+    unicode: "\u{1F0C2}"
+  },
+  {
+    type: "diamond",
+    number: "3",
+    color: "red",
+    unicode: "\u{1F0C3}"
+  },
+  {
+    type: "diamond",
+    number: "4",
+    color: "red",
+    unicode: "\u{1F0C4}"
+  },
+  {
+    type: "diamond",
+    number: "5",
+    color: "red",
+    unicode: "\u{1F0C5}"
+  },
+  {
+    type: "diamond",
+    number: "6",
+    color: "red",
+    unicode: "\u{1F0C6}"
+  },
+  {
+    type: "diamond",
+    number: "7",
+    color: "red",
+    unicode: "\u{1F0C7}"
+  },
+  {
+    type: "diamond",
+    number: "8",
+    color: "red",
+    unicode: "\u{1F0C8}"
+  },
+  {
+    type: "diamond",
+    number: "9",
+    color: "red",
+    unicode: "\u{1F0C9}"
+  },
+  {
+    type: "diamond",
+    number: "10",
+    color: "red",
+    unicode: "\u{1F0CA}"
+  },
+  {
+    type: "diamond",
+    number: "11",
+    color: "red",
+    unicode: "\u{1F0CB}"
+  },
+  {
+    type: "diamond",
+    number: "12",
+    color: "red",
+    unicode: "\u{1F0CD}"
+  },
+  {
+    type: "diamond",
+    number: "13",
+    color: "red",
+    unicode: "\u{1F0CE}"
+  },
+  {
+    type: "heart",
+    number: "1",
+    color: "red",
+    unicode: "\u{1F0B1}"
+  },
+  {
+    type: "heart",
+    number: "2",
+    color: "red",
+    unicode: "\u{1F0B2}"
+  },
+  {
+    type: "heart",
+    number: "3",
+    color: "red",
+    unicode: "\u{1F0B3}"
+  },
+  {
+    type: "heart",
+    number: "4",
+    color: "red",
+    unicode: "\u{1F0B4}"
+  },
+  {
+    type: "heart",
+    number: "5",
+    color: "red",
+    unicode: "\u{1F0B5}"
+  },
+  {
+    type: "heart",
+    number: "6",
+    color: "red",
+    unicode: "\u{1F0B6}"
+  },
+  {
+    type: "heart",
+    number: "7",
+    color: "red",
+    unicode: "\u{1F0B7}"
+  },
+  {
+    type: "heart",
+    number: "8",
+    color: "red",
+    unicode: "\u{1F0B8}"
+  },
+  {
+    type: "heart",
+    number: "9",
+    color: "red",
+    unicode: "\u{1F0B9}"
+  },
+  {
+    type: "heart",
+    number: "10",
+    color: "red",
+    unicode: "\u{1F0BA}"
+  },
+  {
+    type: "heart",
+    number: "11",
+    color: "red",
+    unicode: "\u{1F0BB}"
+  },
+  {
+    type: "heart",
+    number: "12",
+    color: "red",
+    unicode: "\u{1F0BD}"
+  },
+  {
+    type: "heart",
+    number: "13",
+    color: "red",
+    unicode: "\u{1F0BE}"
+  }
 ];
-export default cardsData;
+
+export default cards;

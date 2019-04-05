@@ -11,17 +11,30 @@ class Deck {
     return (this.cards = lodash.shuffle(this.cards));
   }
 
-  wasteCard() {
+  drawACard() {
+    const card = lodash.last(this.cards);
+    this.cards.pop();
+    return card;
+  }
+
+  getDeck() {
     return this.cards;
   }
 
   createInitialPiles() {
     const piles = {};
     this.shuffleDeck();
-    for (let count = 1; count <= 7; count++) {
+    for (let count = 1; count < 8; count++) {
       piles[count] = this.cards.splice(0, count);
     }
     return piles;
+  }
+
+  isDraggable(draggedCard, inPlaceCard) {
+    return (
+      draggedCard.number === inPlaceCard.number - 1 &&
+      draggedCard.color !== inPlaceCard.color
+    );
   }
 
   getPiles() {
