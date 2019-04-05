@@ -7,15 +7,24 @@ class Card extends React.Component {
     this.color = props.color;
     this.id = props.id;
     this.cardNum = props.cardNum;
+    this.isOpen = false;
   }
 
   drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
   }
 
+  canPlayOnTopOf(card) {
+    return card.color !== this.color && this.cardNum + 1 === card.cardNum;
+  }
+
+  setIsOpen() {
+    this.isOpen = true;
+  }
+
   render() {
     let className = "card";
-    if (this.cardNum == 0) {
+    if (this.cardNum === 0) {
       className = "cards";
     }
     return (

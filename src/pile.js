@@ -4,15 +4,14 @@ import Card from "./card";
 class Pile extends React.Component {
   constructor(props) {
     super(props);
-    this.pileNum = props.pileNum;
-    this.state = { piles: props.piles };
+    this.pileData = this.props.pileData;
   }
 
   render() {
     let pileJSX = [];
-    let totalCardCount = this.state.piles[this.pileNum].length;
+    let totalCardCount = this.pileData.length;
     for (let cardNum = 0; cardNum < totalCardCount; cardNum++) {
-      let card = this.state.piles[this.pileNum][cardNum];
+      let card = this.pileData[cardNum];
       let cardJSX = (
         <Card
           unicode={card.unicode}
