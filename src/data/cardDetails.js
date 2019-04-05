@@ -1,4 +1,4 @@
-const cards = [
+const Cards = [
   {
     type: "spade",
     number: "1",
@@ -313,4 +313,14 @@ const cards = [
   }
 ];
 
-export default cards;
+const EmptyCard = {
+  color: "black",
+  unicode: "\u{1F0DF}"
+};
+
+const Default = {
+  color: "black",
+  unicode: "\u{1F0A0}"
+};
+
+export { Cards, EmptyCard, Default };

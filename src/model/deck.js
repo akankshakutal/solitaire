@@ -1,44 +1,37 @@
-import cards from "../data/cardDetails";
-import lodash from "lodash";
-
 class Deck {
-  constructor() {
-    this.cards = cards;
-    this.piles = this.createInitialPiles();
+  constructor(cards) {
+    this.closedCards = cards;
+    this.openCards = [];
   }
 
-  shuffleDeck() {
-    return (this.cards = lodash.shuffle(this.cards));
+  hasNext() {
+    return this.closedCards.length !== 0;
   }
 
-  drawACard() {
-    const card = lodash.last(this.cards);
-    this.cards.pop();
-    return card;
+  hasOpenCard() {
+    return this.openCards.length !== 0;
   }
 
-  getDeck() {
-    return this.cards;
+  getOpenCard() {
+    return this.openCards[this.openCards.length - 1];
   }
 
-  createInitialPiles() {
-    const piles = {};
-    this.shuffleDeck();
-    for (let count = 1; count < 8; count++) {
-      piles[count] = this.cards.splice(0, count);
+  getCards() {
+    return this.openCards.slice(-1);
+  }
+
+  removeCards() {
+    this.openCards.splice(-1);
+  }
+
+  update() {
+    if (this.closedCards.length === 0) {
+      this.closedCards = this.openCards.reverse();
+      this.openCards = [];
+      return;
     }
-    return piles;
-  }
-
-  isDraggable(draggedCard, inPlaceCard) {
-    return (
-      draggedCard.number === inPlaceCard.number - 1 &&
-      draggedCard.color !== inPlaceCard.color
-    );
-  }
-
-  getPiles() {
-    return this.piles;
+    const lastCard = this.closedCards.pop();
+    this.openCards.push(lastCard);
   }
 }
 
