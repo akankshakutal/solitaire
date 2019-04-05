@@ -57,7 +57,7 @@ export default class GameView extends React.Component {
         />
       );
     }
-    return <div class="reserved-piles">{reservedPilesJSX}</div>;
+    return <div className="reserved-piles">{reservedPilesJSX}</div>;
   }
 
   renderStackPiles() {
@@ -79,8 +79,9 @@ export default class GameView extends React.Component {
 
   render() {
     return (
-      <div class="body">
-        <div class="top-cards">
+      <div className="body">
+        <h1>Solitaire</h1>
+        <div className="top-cards">
           <DeckView
             deck={this.state.game.getDeck()}
             updater={this.updateDeck.bind(this)}

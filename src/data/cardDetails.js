@@ -314,8 +314,7 @@ const Cards = [
 ];
 
 const EmptyCard = {
-  color: "black",
-  unicode: "\u{1F0DF}"
+  color: "black"
 };
 
 const Default = {

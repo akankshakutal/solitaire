@@ -35,7 +35,7 @@ export default class DeckView extends React.Component {
 
   render() {
     return (
-      <div class="deck">
+      <div className="deck">
         {this.renderClosedCard(this.props.deck, this.props.updater)}
         {this.renderOpenCard(this.props.deck, this.props.drag)}
       </div>
