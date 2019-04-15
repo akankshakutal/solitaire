@@ -313,12 +313,9 @@ const Cards = [
   }
 ];
 
-const EmptyCard = {
-  color: "black"
-};
+const EmptyCard = {};
 
 const Default = {
-  color: "black",
   unicode: "\u{1F0A0}"
 };
 
